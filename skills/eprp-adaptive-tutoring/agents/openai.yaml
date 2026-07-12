@@ -1,0 +1,4 @@
+interface:
+  display_name: "EPRP Adaptive Tutoring"
+  short_description: "Build sourced adaptive courses and teach them through EPRP."
+  default_prompt: "Use @eprp-adaptive-tutoring to build a course for my learning goal using the sources and capabilities I authorize, then teach me lesson by lesson with EPRP."
