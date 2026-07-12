@@ -1,4 +1,4 @@
 interface:
   display_name: "EPRP Adaptive Tutoring"
-  short_description: "Turn sources and topics into grounded adaptive lessons."
-  default_prompt: "Use @eprp-adaptive-tutoring to teach me this source or topic interactively, stay grounded in the material, and adapt to my responses."
+  short_description: "Build sourced adaptive courses and teach them through EPRP."
+  default_prompt: "Use @eprp-adaptive-tutoring to build a course for my learning goal using the sources and capabilities I authorize, then teach me lesson by lesson with EPRP."
