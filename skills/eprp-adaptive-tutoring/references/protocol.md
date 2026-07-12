@@ -21,6 +21,10 @@ Use this reference when implementing structured state, routing, persistence, or 
   "current_concepts": ["network partition"],
   "attempt": 1,
   "last_probe": "What choices remain when two nodes cannot communicate?",
+  "source_mode": "source-grounded",
+  "source_unit_id": "section-3.2.1",
+  "source_anchors": ["§3.2.1", "Equation 1"],
+  "grounding_policy": "supplemented",
   "next_action": "await_learner"
 }
 ```
@@ -55,6 +59,9 @@ Do not treat `confidence` as proof. It expresses the assessor's uncertainty and 
 ```json
 {
   "unit_id": "distributed-systems.cap.partition",
+  "source_unit_id": "section-2",
+  "source_anchors": ["§2", "paragraph 3"],
+  "grounding_policy": "supplemented",
   "concepts_exposed": ["network partition", "consistency", "availability"],
   "evidence": [
     {
@@ -85,6 +92,18 @@ Keep preferences separate from learning evidence:
   }
 }
 ```
+
+## Source-grounded state
+
+When source material exists, add:
+
+- `source_id`: stable identity for the material when available
+- `source_unit_id`: current bounded portion of the material
+- `source_anchors`: locations that support the current explanation and evidence
+- `grounding_policy`: `strict | supplemented | open`
+- `source_map_version`: version or hash when the material may change
+
+Do not infer an anchor that the host cannot resolve. Use a stable excerpt when pages, headings, or timestamps are unavailable.
 
 ## Deterministic routing
 
