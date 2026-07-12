@@ -1,0 +1,4 @@
+interface:
+  display_name: "EPRP Adaptive Tutoring"
+  short_description: "Teach interactively with Explain, Probe, Review, and Progress."
+  default_prompt: "Use @eprp-adaptive-tutoring to teach me this topic interactively and adapt to my responses."
