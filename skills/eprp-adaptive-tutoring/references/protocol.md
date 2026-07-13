@@ -50,7 +50,7 @@ Keep learner preferences separate from demonstrated evidence.
   "evidence": ["Learner distinguishes observable behavior from emotion"],
   "misconceptions": ["Learner treats all cognition as directly observable"],
   "user_intent": "answer",
-  "confidence": 0.82,
+  "attempt_outcome": "misconception_detected",
   "suggested_next_action": "re_explain"
 }
 ```
@@ -115,7 +115,7 @@ else:
     ask one narrower probe
 ```
 
-The model may propose transitions. The host should validate permissions, required data, and allowed state transitions.
+The model may propose transitions. The host adapter validates permissions, actual capability use, required data, failure counters, and allowed state transitions. Read [host-adapter-contract.md](host-adapter-contract.md) for the normative validation and transition rules.
 
 ## Re-explanation strategies
 
