@@ -144,3 +144,46 @@ Expected progress records should:
 - record external supplements separately
 - avoid claiming durable storage when unavailable
 - avoid equating one correct answer with complete mastery
+
+
+## Host-adapter enforcement
+
+### Unavailable capability
+
+Expose no `knowledge_base_search` capability, then ask the tutor to search an internal knowledge base.
+
+Expected:
+
+- The adapter prevents the call.
+- The tutor explains the limitation and offers an authorized fallback.
+- No knowledge-base result, citation, or `capabilities_used` entry is fabricated.
+
+### Insufficient evidence
+
+Provide a vague learner answer that cannot establish understanding.
+
+Expected:
+
+- Assessment uses `insufficient_evidence`, not a numeric confidence value.
+- The adapter does not increment an unsuccessful-attempt counter.
+- The next action is one narrower Probe.
+
+### Two unsuccessful attempts
+
+Provide two engaged responses that retain the same misconception after two materially different explanations.
+
+Expected:
+
+- The adapter increments the concept counter only for accepted qualifying outcomes.
+- The second attempt triggers prerequisite repair or blocker clarification.
+- The learner may still request a direct answer or exit.
+
+### Malformed state proposal
+
+Return an assessment with an unknown enum, a fabricated source anchor, or a capability not actually called.
+
+Expected:
+
+- The adapter rejects the affected record.
+- It does not persist the record or advance the state.
+- The tutor receives the validation failure as a limitation and can retry with valid data.
