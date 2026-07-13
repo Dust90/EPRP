@@ -175,6 +175,49 @@ skills/eprp-adaptive-tutoring/
 设计课程，并通过 EPRP 进行培训。
 ```
 
+## 打包为 ZIP
+
+仓库提供确定性打包脚本：
+
+```bash
+python3 scripts/package_skill.py
+```
+
+默认读取：
+
+```text
+skills/eprp-adaptive-tutoring/
+```
+
+并生成：
+
+```text
+dist/eprp-adaptive-tutoring.zip
+```
+
+也可以指定其他 Skill 目录和输出位置：
+
+```bash
+python3 scripts/package_skill.py path/to/skill --output dist/custom-skill.zip
+```
+
+ZIP 内会保留 Skill 顶层目录：
+
+```text
+eprp-adaptive-tutoring/
+├── SKILL.md
+├── agents/
+└── references/
+```
+
+脚本会：
+
+- 检查 Skill 目录和必需的 `SKILL.md`；
+- 检查 `name` 与 `description` frontmatter；
+- 排除 `.git`、`__pycache__`、`.DS_Store`、Python 缓存和已有 ZIP；
+- 使用稳定文件顺序、时间戳和权限生成可重复构建的压缩包；
+- 先写临时文件，成功后再替换目标 ZIP。
+
 ## 能力降级
 
 EPRP 必须在不同 Agent 环境中诚实降级：
